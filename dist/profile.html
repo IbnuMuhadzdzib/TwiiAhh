@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Page</title>
+
+  <!-- CSS -->
+    <link rel="stylesheet" href="style.css">   
+    
+    <style>
+        .text-10px {
+            font-size: 10px;
+        }
+    </style>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-thin.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-solid.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-regular.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-light.css">
+
+  <script>
+    function showTab(tabId) {
+      const tabs = ['view-tab', 'edit-tab', 'settings-tab'];
+      tabs.forEach(id => {
+        document.getElementById(id).classList.add('hidden');
+      });
+      document.getElementById(tabId).classList.remove('hidden');
+
+      const btns = ['btn-view', 'btn-edit', 'btn-settings'];
+      btns.forEach(id => {
+        document.getElementById(id).classList.remove('bg-blue-600', 'text-white');
+        document.getElementById(id).classList.add('bg-gray-200', 'text-gray-800');
+      });
+      const activeBtn = document.getElementById('btn-' + tabId.split('-')[0]);
+      activeBtn.classList.remove('bg-gray-200', 'text-gray-800');
+      activeBtn.classList.add('bg-blue-600', 'text-white');
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      showTab('view-tab'); // Default tab
+    });
+
+    function showTab(tabId) {
+    const tabs = ['view-tab', 'edit-tab', 'settings-tab'];
+    tabs.forEach(id => {
+      document.getElementById(id).classList.add('hidden');
+    });
+    document.getElementById(tabId).classList.remove('hidden');
+
+    const btns = ['btn-view', 'btn-edit', 'btn-settings'];
+    btns.forEach(id => {
+      document.getElementById(id).classList.remove('bg-transparent', 'text-secondary', 'border-secondary');
+      document.getElementById(id).classList.add('bg-primary', 'border-primary', 'text-black');
+    });
+    const activeBtn = document.getElementById('btn-' + tabId.split('-')[0]);
+    activeBtn.classList.remove('bg-primary', 'text-black');
+    activeBtn.classList.add('bg-transparent', 'text-secondary', 'border-secondary');
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    showTab('view-tab'); // Default tab
+
+    // Tambahkan event listener untuk form edit
+    document.getElementById('edit-form').addEventListener('submit', function (e) {
+      e.preventDefault(); // Mencegah reload
+
+      const newName = document.getElementById('edit-name').value;
+      const newUsername = document.getElementById('edit-username').value;
+      const newBio = document.getElementById('edit-bio').value;
+
+      // Update isi tampilan view-tab
+      document.getElementById('view-name').textContent = newName;
+      document.getElementById('view-username').textContent = newUsername;
+      document.getElementById('view-bio').textContent = newBio;
+
+      // Pindah ke tab view
+      showTab('view-tab');
+    });
+  });
+
+  const followers = [
+  "Sevalino", "wafi", "Hilmi", "Aiman", "Afiq", "Zul", "Hakim", "Farhan", "Syafiq", "Arif",
+  "Danish", "Faiz", "Imran", "Naufal", "Izzat", "Amin", "Rizal", "Haris", "Taufiq", "Firdaus",
+  "Azim", "Fahmi", "Khairul", "Siti", "Nurul", "Aisyah", "Nadia", "Sarah", "Fatin", "Amira",
+  "Balqis", "Nurin", "Aina", "Farah", "Irdina", "Zulaikha", "Hannah", "Nabila", "Adlina", "Liyana",
+  "Sofea", "Diyana", "Raihan", "Alif", "Azlan", "Syazwan", "Haikal", "Shafiq", "Fikri", "Iqbal",
+  "Hakimi", "Rafiq", "Muaz", "Maisarah", "Syahirah", "Najwa", "Dayana", "Atikah", "Zarina", "Alia",
+  "Tasya", "Dahlia", "Melati", "Mika", "Khalish", "Elisa", "Hafiz", "Syamil", "Anis", "Irfan",
+  "Yusof", "Saiful", "Yusuf", "Adam", "Mikael", "Iskandar", "Reza", "Ilham", "Aidil", "Daniel",
+  "Nizam", "Akmal", "Aqil", "Humaira", "Qistina", "Khairunnisa", "Syuhada", "Faris", "Maisara", "Adib",
+  "Yana", "Zikri", "Luqman", "Shazana", "Wani", "Zaim", "Ellyna", "Irham", "Fahda", "Ruzaini",
+  "Roslan","cecep"
+];
+
+  const following = ["Ibnu", "Yazid"];
+
+  function updateCounts() {
+    document.getElementById("followers-count").textContent = followers.length;
+    document.getElementById("following-count").textContent = following.length;
+  }
+
+  function renderList(id, data) {
+    const ul = document.getElementById(id);
+    ul.innerHTML = "";
+    data.forEach(name => {
+      const li = document.createElement("li");
+      li.textContent = name;
+      ul.appendChild(li);
+    });
+  }
+
+  function toggleList(listId) {
+  const lists = ['followers-list', 'following-list'];
+  lists.forEach(id => {
+    if (id === listId) {
+      document.getElementById(id).classList.toggle('hidden');
+    } else {
+      document.getElementById(id).classList.add('hidden');
+    }
+  });
+}
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+    showTab('view-tab'); // Default tab
+    updateCounts();
+    renderList("followers-list", followers);
+    renderList("following-list", following);
+
+    // Form edit update info
+    document.getElementById('edit-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const newName = document.getElementById('edit-name').value;
+      const newUsername = document.getElementById('edit-username').value;
+      const newBio = document.getElementById('edit-bio').value;
+
+      document.getElementById('view-name').textContent = newName;
+      document.getElementById('view-username').textContent = newUsername;
+      document.getElementById('view-bio').textContent = newBio;
+
+      showTab('view-tab');
+    });
+  });
+
+  </script>
+</head>
+<body class="bg-teritary font-sans">
+
+  <div class="min-h-screen flex">
+
+     <!-- Left Bar -->
+             <section class="fixed w-80 h-full flex flex-col py-6 px-6 justify-items-start border-r border-primary bg-teritary space-y-6">
+                <!-- Logo -->
+                 <div class="flex px-4">
+                    <img src="images/TwiiAhh Logo.svg" class="w-9/12" alt="">
+                 </div>
+
+                <!-- Date -->
+                 <div class="px-4 mt-4 flex">
+                    <h1>Monday, 1st January, 2025</h1>
+                 </div>
+
+                <!-- Link -->
+                 <div class="flex px-4 flex-col items-start space-y-8">
+                    <a class="text-xl text-black hover:text-secondary transition flex items-center gap-5" href="index.html">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Home</span>
+                    </a>
+                    <a class="text-xl ml-0.5 hover:text-secondary transition flex items-center gap-6" href="">
+                        <i class="fa-solid fa-bookmark"></i>
+                        <span>Bookmarks</span>
+                    </a>
+                    <a class="text-xl text-secondary transition flex items-center gap-6" href="profile.html">
+                        <i class="fa-solid fa-user"></i>
+                        <span>Profile</span>
+                    </a>
+                    <a class="text-xl hover:text-secondary transition flex items-center gap-5" href="profile.html">
+                        <i class="fa-solid fa-gear"></i>
+                        <span>Settings</span>
+                    </a>
+                    <a class="text-xl hover:text-secondary transition flex items-center gap-5" href="">
+                        <i class="fa-regular fa-square-ellipsis"></i>
+                        <span>Credit</span>
+                    </a>
+                </div>
+
+                <!-- Post -->
+                 <div class="my-5">
+                    <a class="flex text-2xl bg-primary border border-primary justify-center p-2 w-52 rounded-full hover:text-secondary hover:border-secondary transition hover:bg-transparent uppercase" href="">
+                        Post
+                    </a>
+                 </div>
+
+             </section>
+                <!-- Left Bar -->
+
+    <!-- Profile Section -->
+    <main class="flex-1 w-full py-6 justify-end item end">
+      <div class="w-1/2 mx-auto bg-teritary p-6 rounded-2xl shadow-md">
+
+        <!-- Tabs -->
+        <div class="flex gap-2 mb-6">
+          <button id="btn-view" onclick="showTab('view-tab')" class="bg-transparent border border-secondary text-black px-4 py-2 rounded-full">View</button>
+          <button id="btn-edit" onclick="showTab('edit-tab')" class="bg-primary text-black border border-primary px-4 py-2 rounded-full">Edit</button>
+          <button id="btn-settings" onclick="showTab('settings-tab')" class="bg-primary text-black border border-primary px-4 py-2 rounded-full">Settings</button>
+        </div>
+
+        <!-- View Profile Tab -->
+<div id="view-tab">
+  <div class="flex items-center space-x-4">
+    <img src="./images/me2.jpg" alt="Profile" class="w-20 h-20 rounded-full object-cover">
+    <div>
+      <h2 id="view-name" class="text-xl font-semibold text-gray-900">Mohammad Yazid</h2>
+      <p id="view-username" class="text-sm text-gray-600">Full Stack Developer</p>
+    </div>
+  </div>
+  <p id="view-bio" class="mt-4 text-sm text-gray-700">
+    Seorang developer yang suka membangun projek web dan eksperimen .
+  </p>
+  <div class="mt-6 grid grid-cols-3 text-center text-sm text-gray-700">
+  <div>
+    <p class="font-bold text-lg">5</p>
+    <span>Posts</span>
+  </div>
+  <div class="cursor-pointer" onclick="toggleList('followers-list')">
+    <p id="followers-count" class="font-bold text-lg">102</p>
+    <span>Followers</span>
+  </div>
+  <div class="cursor-pointer" onclick="toggleList('following-list')">
+    <p id="following-count" class="font-bold text-lg">2</p>
+    <span>Following</span>
+  </div>
+</div>
+
+<!-- List followers & following -->
+<div class="mt-4 space-y-4 text-sm text-gray-700">
+  <div id="followers-list" class="hidden">
+    <strong class="block text-gray-800 mb-1">Followers:</strong>
+    <ul class="list-disc ml-5"></ul>
+  </div>
+  <div id="following-list" class="hidden">
+    <strong class="block text-gray-800 mb-1">Following:</strong>
+    <ul class="list-disc ml-5"></ul>
+  </div>
+</div>
+
+</div>
+
+
+        <!-- Edit Profile Tab -->
+<div id="edit-tab" class="hidden">
+  <form id="edit-form" class="space-y-4">
+    <div>
+      <label class="block text-sm font-medium text-gray-700">Nama Penuh</label>
+      <input id="edit-name" type="text" class="mt-1 w-full px-4 py-2 border rounded-lg" value="Mohammad Yazid">
+    </div>
+    <div>
+      <label class="block text-sm font-medium text-gray-700">Username</label>
+      <input id="edit-username" type="text" class="mt-1 w-full px-4 py-2 border rounded-lg" value="Full Stack Developer">
+    </div>
+    <div>
+      <label class="block text-sm font-medium text-gray-700">Bio</label>
+      <textarea id="edit-bio" class="mt-1 w-full px-4 py-2 border rounded-lg" rows="3">Seorang developer yang suka membangun projek web...</textarea>
+    </div>
+    <div>
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700">Simpan</button>
+    </div>
+  </form>
+</div>
+
+
+        <!-- Settings Tab -->
+        <div id="settings-tab" class="hidden">
+          <form class="space-y-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Email</label>
+              <input type="email" class="mt-1 w-full px-4 py-2 border rounded-lg" value="yazid@example.com">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Password</label>
+              <input type="password" class="mt-1 w-full px-4 py-2 border rounded-lg" placeholder="••••••••">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Bahasa</label>
+              <select class="mt-1 w-full px-4 py-2 border rounded-lg">
+                <option selected>Indonesia</option>
+                <option>English</option>
+              </select>
+            </div>
+            <div>
+              <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700">Update</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+</body>
+</html>
