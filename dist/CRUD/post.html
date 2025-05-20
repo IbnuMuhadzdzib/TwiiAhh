@@ -10,7 +10,7 @@
    <link rel="icon" href="images/TwiiAhh Logo 2.svg" type="image/svg+xml">
     
     <!-- CSS -->
-    <link rel="stylesheet" href="style.css">   
+    <link rel="stylesheet" href="../style.css">   
     
     <style>
         .text-10px {
@@ -48,17 +48,17 @@
     </header>
 
             <!-- Burger -->
-             <button id="menu-toggle" class=" fixed top-4 left-4 z-50 p-2">
+             <button id="menu-toggle" class="md:hidden fixed top-4 left-4 z-50 p-2">
                 <i class="fas fa-bars text-primary text-2xl"></i>
             </button>
             <!-- Burger -->
 
             <!-- Left Bar -->
              <section id="sidebar" id="sidebar" class="fixed w-80 h-full flex flex-col py-6 px-6 justify-items-start border-r border-primary bg-teritary space-y-6 
-                -left-80 transition-all duration-300 z-40 lg:left-0 ">
+                -left-80 transition-all duration-300 z-40 md:left-0 md:flex">
                 <!-- Logo -->
                  <div class="flex px-4">
-                    <img src="images/TwiiAhh Logo.svg" class="w-9/12 ml-8" alt="">
+                    <img src="images/TwiiAhh Logo.svg" class="w-9/12 ml-8 md:ml-0" alt="">
                  </div>
 
                 <!-- Date -->
@@ -68,11 +68,11 @@
 
                 <!-- Link -->
                  <div class="flex px-4 flex-col items-start space-y-8">
-                    <a class="text-xl text-secondary transition flex items-center gap-5" href="index.html">
+                    <a class="text-xl text-secondary transition flex items-center gap-5" href="../index.html">
                         <i class="fa-solid fa-house"></i>
                         <span>Home</span>
                     </a>
-                    <a class="text-xl ml-0.5 hover:text-secondary transition flex items-center gap-6" href="bookmarks.html">
+                    <a class="text-xl ml-0.5 hover:text-secondary transition flex items-center gap-6" href="">
                         <i class="fa-solid fa-bookmark"></i>
                         <span>Bookmarks</span>
                     </a>
@@ -99,7 +99,7 @@
 
                 <!-- Post -->
                  <div class="my-5">
-                    <a class="flex text-2xl bg-primary border border-primary justify-center p-2 w-52 rounded-full hover:text-secondary hover:border-secondary transition hover:bg-transparent uppercase" href="CRUD/post.html">
+                    <a class="flex text-2xl bg-primary border border-primary justify-center p-2 w-52 rounded-full hover:text-secondary hover:border-secondary transition hover:bg-transparent uppercase" href="">
                         Post
                     </a>
                  </div>
@@ -108,14 +108,13 @@
                 <!-- Left Bar -->
 
                 <!-- Right Bar -->
-                <div class="flex flex-row-reverse ">
-                    <section class="fixed hidden md:flex w-0 md:w-80 h-full text-lg flex-col items-start py-6 px-6 border-l border-primary right-0 bg-teritary space-y-6 z-40">
+                    <section class="fixed hidden md:flex w-80 h-full text-lg flex-col items-start py-6 px-6 border-l border-primary right-0 bg-teritary space-y-6">
                          <!-- Auth Button / Account -->
                     <div class="flex items-center justify-center gap-3">
-                        <a class="border border-primary bg-transparent py-2 px-6 rounded-full hover:border-secondary hover:text-secondary transition" href="auth/login.html">
+                        <a class="border border-primary bg-transparent py-2 px-6 rounded-full hover:border-secondary hover:text-secondary transition" href="">
                             Login
                         </a>
-                        <a class="border border-primary bg-primary py-2 px-6 rounded-full hover:bg-transparent hover:text-secondary hover:border-secondary transition" href="auth/register.html">
+                        <a class="border border-primary bg-primary py-2 px-6 rounded-full hover:bg-transparent hover:text-secondary hover:border-secondary transition" href="">
                             Sign Up
                         </a>
                     </div>
@@ -230,10 +229,10 @@
                 <!-- Right Bar -->
 
                 <!-- Feeds -->
-                 <main class= "flex flex-col justify-center items-center py-20 w-full">
+                 <main class= "flex flex-col justify-center items-center py-20 mb-6">
 
                     <!-- Tab Link -->
-                      <div class="flex items-center gap-5 space capitalize">
+                      <div class="flex items-center gap-5 space-x-6 capitalize">
                         <div>
                             <button href="#" onclick="active(this)" class="tab-btn text-black text-xl border-b-2 pb-1 border-primary focus:outline-none transition">
                             For You
@@ -302,7 +301,7 @@
                     <!-- Single Post End -->
 
                     <!-- Single Post -->
-                    <div class="mt-6 flex justify-center items-center w-full md:w-7/12">
+                    <div class="mt-6 flex justify-center items-center w-7/12">
                         <div class="border border-primary w-10/12 rounded-md p-3 shadow-md">
                            <!-- User -->
                              <div class="flex items-center px-5">
@@ -367,7 +366,7 @@
                     <!-- Single Post End -->
 
                     <!-- Single Post -->
-                    <div class="mt-6 flex justify-center items-center w-full md:w-7/12">
+                    <div class="mt-6 flex justify-center items-center w-7/12">
                         <div class="border border-primary w-10/12 rounded-md p-3 shadow-md">
                            <!-- User -->
                              <div class="flex items-center px-5">
@@ -424,7 +423,7 @@
                     
 
                     <!-- Single Post -->
-                    <div class="mt-6 flex justify-center items-center w-full md:w-7/12">
+                    <div class="mt-6 flex justify-center items-center w-7/12">
                         <div class="border border-primary w-10/12 rounded-md p-3 shadow-md">
                            <!-- User -->
                              <div class="flex items-center px-5">
@@ -489,7 +488,7 @@
                     <!-- Single Post End -->
 
                     <!-- Single Post -->
-                    <div class="mt-6 flex justify-center items-center w-full md:w-7/12">
+                    <div class="mt-6 flex justify-center items-center w-7/12">
                         <div class="border border-primary w-10/12 rounded-md p-3 shadow-md">
                            <!-- User -->
                              <div class="flex items-center px-5">
@@ -541,19 +540,8 @@
                     <!-- Single Post End -->
                     </div>
 
-                    <footer>
-                        <div class="flex justify-center items-center gap-4 mt-12">
-                            <p class="text-xs text-gray-500">© 2025 TwiiAhh; Team 3. All rights reserved.</p>
-                            <a href="#" class="text-xs text-gray-500 hover:text-secondary">Privacy Policy</a>
-                            <a href="#" class="text-xs text-gray-500 hover:text-secondary">Terms of Service</a>
-                        </div>
-                    </footer>
-
                  </main>
-
-                </div>
-                    
-                <!-- Feeds -->
+                <!-- Main -->
 
    <script>
 
@@ -670,11 +658,9 @@
     if (sidebar.classList.contains('-left-80')) {
       sidebar.classList.remove('-left-80');
       sidebar.classList.add('left-0');
-      sidebar.classList.add('lg:left-0');
     } else {
       sidebar.classList.add('-left-80');
       sidebar.classList.remove('left-0');
-      sidebar.classList.remove('lg:left-0');
     }
   });
 </script>
