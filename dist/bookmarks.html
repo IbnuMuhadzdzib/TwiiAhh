@@ -27,13 +27,38 @@
 </head>
 <body class="bg-teritary font-sans">
 
-  <dclass="min-h-screen flex">
+    <!-- Navbar -->
+    <header class="w-full backdrop-blur-md bg-opacity-70">
+        <nav class="flex justify-center px-6 border-b border-primary py-2.5">
+
+            <!-- Search Bar -->
+           <div class="w-6/12 items-center justify-center">
+             <div class="relative">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">
+                    <i class="fas fa-search"></i>
+                </span>
+                    <input
+                    type="text"
+                    placeholder="Search..."
+                    class="w-full pl-10 pr-4 py-2 border border-primary rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition"
+                    />
+                </div>
+           </div>
+        </nav>
+    </header>
+        <div class="flex flex-row">
+
+  <button id="menu-toggle" class=" absolute top-4 left-4 z-50 p-2">
+                <i class="fas fa-bars text-primary text-2xl"></i>
+            </button>
 
      <!-- Left Bar -->
-             <section class="fixed w-80 h-full flex flex-col py-6 px-6 justify-items-start border-r border-primary bg-teritary space-y-6">
+
+             <section id="sidebar" id="sidebar" class=" w-96 h-screen max-h-screen flex flex-col py-6 px-6 justify-items-start border-r border-primary bg-teritary space-y-6 
+                transition-all duration-300 z-40 lg:l overflow-x-hidden whitespace-nowrap overflow-y-auto">
                 <!-- Logo -->
                  <div class="flex px-4">
-                    <img src="images/TwiiAhh Logo.svg" class="w-9/12" alt="">
+                    <img src="images/TwiiAhh Logo.svg" class="w-10/12" alt="">
                  </div>
 
                 <!-- Date -->
@@ -43,19 +68,19 @@
 
                 <!-- Link -->
                  <div class="flex px-4 flex-col items-start space-y-8">
-                    <a class="text-xl text-black hover:text-secondary transition flex items-center gap-5" href="index.html">
+                    <a class="text-xl peer-hover:text-secondary transition flex items-center gap-5" href="index.html">
                         <i class="fa-solid fa-house"></i>
                         <span>Home</span>
                     </a>
-                    <a class="text-xl ml-0.5 hover:text-secondary transition flex items-center gap-6" href="bookmarks.html">
+                    <a class="text-xl ml-0.5 text-secondary transition flex items-center gap-6" href="bookmarks.html">
                         <i class="fa-solid fa-bookmark"></i>
                         <span>Bookmarks</span>
                     </a>
-                    <a class="text-xl text-secondary transition flex items-center gap-6" href="profile.html">
+                    <a class="text-xl hover:text-secondary transition flex items-center gap-6" href="profile.html">
                         <i class="fa-solid fa-user"></i>
                         <span>Profile</span>
                     </a>
-                    <a class="text-xl hover:text-secondary transition flex items-center gap-5" href="settings.html">
+                    <a class="text-xl hover:text-secondary transition flex items-center gap-5" href="profile.html">
                         <i class="fa-solid fa-gear"></i>
                         <span>Settings</span>
                     </a>
@@ -63,6 +88,13 @@
                         <i class="fa-regular fa-square-ellipsis"></i>
                         <span>Credit</span>
                     </a>
+                </div>
+
+                <!-- Stats -->
+                 <div class="px-3 py-2 text-base text-black space-y-1">
+                    <p>Posts: <span class="font-semibold text-secondary">5</span></p>
+                    <p>Followers: <span class="font-semibold text-secondary">102</span></p>
+                    <p>Following: <span class="font-semibold text-secondary">2</span></p>
                 </div>
 
                 <!-- Post -->
