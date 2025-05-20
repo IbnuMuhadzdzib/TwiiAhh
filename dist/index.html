@@ -25,10 +25,10 @@
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-regular.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-light.css">
 </head>
-<body>
+<body class="h-screen">
 
     <!-- Navbar -->
-    <header class="fixed w-full backdrop-blur-md bg-opacity-70">
+    <header class="w-full backdrop-blur-md bg-opacity-70">
         <nav class="flex justify-center px-6 border-b border-primary py-2.5">
 
             <!-- Search Bar -->
@@ -46,15 +46,17 @@
            </div>
         </nav>
     </header>
+        <div class="flex flex-row">
 
             <!-- Burger -->
-             <button id="menu-toggle" class=" fixed top-4 left-4 z-50 p-2">
+             <button id="menu-toggle" class=" absolute top-4 left-4 z-50 p-2">
                 <i class="fas fa-bars text-primary text-2xl"></i>
             </button>
             <!-- Burger -->
 
             <!-- Left Bar -->
-             <section id="sidebar" id="sidebar" class="fixed w-80 h-full flex flex-col py-6 px-6 justify-items-start border-r border-primary bg-teritary space-y-6 
+
+             <section id="sidebar" id="sidebar" class=" w-96 h-screen max-h-screen overflow-y-scroll flex flex-col py-6 px-6 justify-items-start border-r border-primary bg-teritary space-y-6 
                 -left-80 transition-all duration-300 z-40 lg:left-0 ">
                 <!-- Logo -->
                  <div class="flex px-4">
@@ -84,7 +86,7 @@
                         <i class="fa-solid fa-gear"></i>
                         <span>Settings</span>
                     </a>
-                    <a class="text-xl hover:text-secondary transition flex items-center gap-5" href="">
+                    <a class="text-xl hover:text-secondary transition flex items-center gap-5" href="credit.html">
                         <i class="fa-regular fa-square-ellipsis"></i>
                         <span>Credit</span>
                     </a>
@@ -103,13 +105,334 @@
                         Post
                     </a>
                  </div>
-
              </section>
                 <!-- Left Bar -->
 
+                 <main class= "flex flex-col items-center w-full h-full max-h-screen overflow-y-scroll">
+
+                    <!-- Tab Link -->
+                      <div class="flex items-center gap-5 space capitalize">
+                        <div>
+                            <button href="#" onclick="active(this)" class="tab-btn text-black text-xl border-b-2 pb-1 border-primary focus:outline-none transition">
+                            For You
+                            </button>
+                        </div>
+                            <div>
+                                <button href="#" onclick="active(this)" class="tab-btn text-black text-xl border-b-2 pb-1 border-black hover:border-primary focus:outline-none transition">
+                                Following
+                                </button>
+                            </div>
+                        </div>
+
+
+                   <!-- For You Tab -->
+                    <div class="flex flex-col justify-center items-center" id="forYou">
+                    <!-- Single Post -->
+                    <div class="mt-6 flex justify-center items-center w-full">
+                        <div class="border border-primary w-10/12 rounded-md p-3 shadow-md">
+                           <!-- User -->
+                             <div class="flex items-center px-5">
+                                <!-- Pfp -->
+                                <div>
+                                    <img src="images/avatar.png" class="w-10" alt="">
+                                </div>
+                                
+                                <!-- Username -->
+                                <div class="flex gap-1 text-md ml-3 justify-center items-center">
+                                    <p>
+                                        Lorem
+                                    </p>
+                                    <p class="text-gray-500 text-xs">
+                                        @lorem_test
+                                    </p>
+                                </div>
+                             </div>
+                            <!-- User -->
+
+                            <!-- Content -->
+                            <div class="mt-2 px-5">
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, rerum. Beatae laborum, et cupiditate cumque error voluptas autem minus praesentium!
+                                </p>
+                            </div>
+
+                            <!-- Interaction -->
+                             <div class="flex mt-4 mb-1 items-start justify-between gap-5 w-full px-5">
+                                <div class="flex gap-4">
+                                    <p class="cursor-pointer" onclick="toggleLike()">
+                                        <i class="fa-regular fa-heart text-black" id="likeIcon"></i>
+                                        <span id="likeCount">721</span>
+                                    </p>
+                                    <p class="cursor-pointer" onclick="toggleRepost()">
+                                        <i class="fa-solid fa-repeat" id="repostIcon"></i>
+                                    </p>
+                                </div>
+                                
+                                <div>
+                                    <p class="cursor-pointer" onclick="toggleSave()">
+                                    <i class="fa-regular fa-bookmark" id="saveIcon"></i>
+                                </p>
+                                </div>
+                             </div>
+
+                        </div>
+                    </div>
+                    <!-- Single Post End -->
+
+                    <!-- Single Post -->
+                    <div class="mt-6 flex justify-center items-center w-full">
+                        <div class="border border-primary w-10/12 rounded-md p-3 shadow-md">
+                           <!-- User -->
+                             <div class="flex items-center px-5">
+                                <!-- Pfp -->
+                                <div>
+                                    <img src="images/avatar.png" class="w-10" alt="">
+                                </div>
+                                
+                                <!-- Username -->
+                                <div class="flex gap-1 text-xs ml-3">
+                                    <p>
+                                        Lorem
+                                    </p>
+                                    <p class="text-gray-500">
+                                        @lorem_ipsum
+                                    </p>
+                                </div>
+                             </div>
+                            <!-- User -->
+
+                            <!-- Content -->
+                            <div class="mt-2 px-5">
+                                <!-- Pict -->
+                               <div class="flex gap-2">
+                                 <img src="images/products/product10.jpg" class="w-80 h-auto mb-2 border border-primary" alt="">
+                                 <div>
+                                    <img src="images/products/product10.jpg" class="w-40 h-auto mb-2 border border-primary" alt="">
+                                    <img src="images/products/product10.jpg" class="w-40 h-auto mb-2 border border-primary" alt="">
+                                 </div>
+                                 <div>
+                                    <img src="images/products/product10.jpg" class="w-40 h-auto mb-2 border border-primary" alt="">
+                                    <img src="images/products/product10.jpg" class="w-40 h-auto mb-2 border border-primary" alt="">
+                                 </div>
+                               </div>
+                               <!-- Caption -->
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, rerum. Beatae laborum, et cupiditate cumque error voluptas autem minus praesentium!
+                                </p>
+                            </div>
+
+                            <!-- Interaction -->
+                             <div class="flex mt-4 mb-1 items-start justify-between gap-5 w-full px-5">
+                                <div class="flex gap-4">
+                                    <p class="cursor-pointer" onclick="toggleLike()">
+                                        <i class="fa-regular fa-heart text-black" id="likeIcon"></i>
+                                        <span id="likeCount">721</span>
+                                    </p>
+                                    <p class="cursor-pointer" onclick="toggleRepost()">
+                                        <i class="fa-solid fa-repeat" id="repostIcon"></i>
+                                    </p>
+                                </div>
+                                
+                                <div>
+                                    <p class="cursor-pointer" onclick="toggleSave()">
+                                    <i class="fa-regular fa-bookmark" id="saveIcon"></i>
+                                </p>
+                                </div>
+                             </div>
+
+                        </div>
+                    </div>
+                    <!-- Single Post End -->
+
+                    <!-- Single Post -->
+                    <div class="mt-6 flex justify-center items-center w-full">
+                        <div class="border border-primary w-10/12 rounded-md p-3 shadow-md">
+                           <!-- User -->
+                             <div class="flex items-center px-5">
+                                <!-- Pfp -->
+                                <div>
+                                    <img src="images/avatar.png" class="w-10" alt="">
+                                </div>
+                                
+                                <!-- Username -->
+                                <div class="flex gap-1 text-xs ml-3">
+                                    <p>
+                                        Lorem
+                                    </p>
+                                    <p class="text-gray-500">
+                                        @lorem_ipsum
+                                    </p>
+                                </div>
+                             </div>
+                            <!-- User -->
+
+                            <!-- Content -->
+                            <div class="mt-2 px-5">
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Id quis dignissimos quod sequi perspiciatis eveniet distinctio. Magni dicta, et officiis ab commodi ducimus odit odio facilis a. Repudiandae error perspiciatis nulla voluptatum at alias, mollitia ipsum rem nam in officia quod natus architecto non sequi, reprehenderit numquam vitae ex qui!
+                                </p>
+                            </div>
+
+                            <!-- Interaction -->
+                             <div class="flex mt-4 mb-1 items-start justify-between gap-5 w-full px-5">
+                                <div class="flex gap-4">
+                                    <p class="cursor-pointer" onclick="toggleLike()">
+                                        <i class="fa-regular fa-heart text-black" id="likeIcon"></i>
+                                        <span id="likeCount">721</span>
+                                    </p>
+                                    <p class="cursor-pointer" onclick="toggleRepost()">
+                                        <i class="fa-solid fa-repeat" id="repostIcon"></i>
+                                    </p>
+                                </div>
+                                
+                                <div>
+                                    <p class="cursor-pointer" onclick="toggleSave()">
+                                    <i class="fa-regular fa-bookmark" id="saveIcon"></i>
+                                </p>
+                                </div>
+                             </div>
+
+                        </div>
+                    </div>
+                    <!-- Single Post End -->
+                    </div>
+
+                   <!-- Following Tab -->
+                    <div class="flex flex-col justify-center items-center" id="following">
+                    
+
+                    <!-- Single Post -->
+                    <div class="mt-6 flex justify-center items-center w-full">
+                        <div class="border border-primary w-10/12 rounded-md p-3 shadow-md">
+                           <!-- User -->
+                             <div class="flex items-center px-5">
+                                <!-- Pfp -->
+                                <div>
+                                    <img src="images/avatar.png" class="w-10" alt="">
+                                </div>
+                                
+                                <!-- Username -->
+                                <div class="flex gap-1 text-xs ml-3">
+                                    <p>
+                                        Lorem
+                                    </p>
+                                    <p class="text-gray-500">
+                                        @lorem_ipsum
+                                    </p>
+                                </div>
+                             </div>
+                            <!-- User -->
+
+                            <!-- Content -->
+                            <div class="mt-2 px-5">
+                                <!-- Pict -->
+                               <div class="flex gap-2">
+                                 <img src="images/products/product10.jpg" class="w-80 h-auto mb-2 border border-primary" alt="">
+                                 <div>
+                                    <img src="images/products/product10.jpg" class="w-40 h-auto mb-2 border border-primary" alt="">
+                                    <img src="images/products/product10.jpg" class="w-40 h-auto mb-2 border border-primary" alt="">
+                                 </div>
+                                 <div>
+                                    <img src="images/products/product10.jpg" class="w-40 h-auto mb-2 border border-primary" alt="">
+                                    <img src="images/products/product10.jpg" class="w-40 h-auto mb-2 border border-primary" alt="">
+                                 </div>
+                               </div>
+                               <!-- Caption -->
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, rerum. Beatae laborum, et cupiditate cumque error voluptas autem minus praesentium!
+                                </p>
+                            </div>
+
+                            <!-- Interaction -->
+                             <div class="flex mt-4 mb-1 items-start justify-between gap-5 w-full px-5">
+                                <div class="flex gap-4">
+                                    <p class="cursor-pointer" onclick="toggleLike()">
+                                        <i class="fa-regular fa-heart text-black" id="likeIcon"></i>
+                                        <span id="likeCount">721</span>
+                                    </p>
+                                    <p class="cursor-pointer" onclick="toggleRepost()">
+                                        <i class="fa-solid fa-repeat" id="repostIcon"></i>
+                                    </p>
+                                </div>
+                                
+                                <div>
+                                    <p class="cursor-pointer" onclick="toggleSave()">
+                                    <i class="fa-regular fa-bookmark" id="saveIcon"></i>
+                                </p>
+                                </div>
+                             </div>
+
+                        </div>
+                    </div>
+                    <!-- Single Post End -->
+
+                    <!-- Single Post -->
+                    <div class="mt-6 flex justify-center items-center w-full">
+                        <div class="border border-primary w-10/12 rounded-md p-3 shadow-md">
+                           <!-- User -->
+                             <div class="flex items-center px-5">
+                                <!-- Pfp -->
+                                <div>
+                                    <img src="images/avatar.png" class="w-10" alt="">
+                                </div>
+                                
+                                <!-- Username -->
+                                <div class="flex gap-1 text-xs ml-3">
+                                    <p>
+                                        Lorem
+                                    </p>
+                                    <p class="text-gray-500">
+                                        @lorem_ipsum
+                                    </p>
+                                </div>
+                             </div>
+                            <!-- User -->
+
+                            <!-- Content -->
+                            <div class="mt-2 px-5">
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Id quis dignissimos quod sequi perspiciatis eveniet distinctio. Magni dicta, et officiis ab commodi ducimus odit odio facilis a. Repudiandae error perspiciatis nulla voluptatum at alias, mollitia ipsum rem nam in officia quod natus architecto non sequi, reprehenderit numquam vitae ex qui!
+                                </p>
+                            </div>
+
+                            <!-- Interaction -->
+                             <div class="flex mt-4 mb-1 items-start justify-between gap-5 w-full px-5">
+                                <div class="flex gap-4">
+                                    <p class="cursor-pointer" onclick="toggleLike()">
+                                        <i class="fa-regular fa-heart text-black" id="likeIcon"></i>
+                                        <span id="likeCount">721</span>
+                                    </p>
+                                    <p class="cursor-pointer" onclick="toggleRepost()">
+                                        <i class="fa-solid fa-repeat" id="repostIcon"></i>
+                                    </p>
+                                </div>
+                                
+                                <div>
+                                    <p class="cursor-pointer" onclick="toggleSave()">
+                                    <i class="fa-regular fa-bookmark" id="saveIcon"></i>
+                                </p>
+                                </div>
+                             </div>
+
+                        </div>
+                    </div>
+                    <!-- Single Post End -->
+                    </div>
+
+                    <footer>
+                        <div class="flex justify-center items-center gap-4 mt-12">
+                            <p class="text-xs text-gray-500">© 2025 TwiiAhh; Team 3. All rights reserved.</p>
+                            <a href="#" class="text-xs text-gray-500 hover:text-secondary">Privacy Policy</a>
+                            <a href="#" class="text-xs text-gray-500 hover:text-secondary">Terms of Service</a>
+                        </div>
+                    </footer>
+
+                 </main>
+
+
                 <!-- Right Bar -->
-                <div class="flex flex-row-reverse ">
-                    <section class="fixed hidden md:flex w-0 md:w-80 h-full text-lg flex-col items-start py-6 px-6 border-l border-primary right-0 bg-teritary space-y-6 z-40">
+
+                    <section class="hidden md:flex w-0 md:w-96 h-full max-h-screen overflow-y-scroll text-lg flex-col py-6 px-6 border-l border-primary bg-teritary space-y-6" >
                          <!-- Auth Button / Account -->
                     <div class="flex items-center justify-center gap-3">
                         <a class="border border-primary bg-transparent py-2 px-6 rounded-full hover:border-secondary hover:text-secondary transition" href="auth/login.html">
@@ -177,7 +500,7 @@
 
                                    <div class="flex flex-col items-center">
                                         <h1 class="text-sm">Lorem Ipsum</h1>
-                                        <p class="text-10px absolute mt-4 mr-4 text-gray-500">@lorem_ipsum</p>
+                                        <p class="text-10px  mt-4 mr-4 text-gray-500">@lorem_ipsum</p>
                                    </div>
                                     </div>
 
@@ -195,7 +518,7 @@
 
                                    <div class="flex flex-col items-center">
                                         <h1 class="text-sm">Lorem Ipsum</h1>
-                                        <p class="text-10px absolute mt-4 mr-4 text-gray-500">@lorem_ipsum</p>
+                                        <p class="text-10px mt-4 mr-4 text-gray-500">@lorem_ipsum</p>
                                    </div>
                                     </div>
 
@@ -213,7 +536,7 @@
 
                                    <div class="flex flex-col items-center">
                                         <h1 class="text-sm">Lorem Ipsum</h1>
-                                        <p class="text-10px absolute mt-4 mr-4 text-gray-500">@lorem_ipsum</p>
+                                        <p class="text-10px mt-4 mr-4 text-gray-500">@lorem_ipsum</p>
                                    </div>
                                     </div>
 
@@ -230,327 +553,7 @@
                 <!-- Right Bar -->
 
                 <!-- Feeds -->
-                 <main class= "flex flex-col justify-center items-center py-20 w-full">
-
-                    <!-- Tab Link -->
-                      <div class="flex items-center gap-5 space capitalize">
-                        <div>
-                            <button href="#" onclick="active(this)" class="tab-btn text-black text-xl border-b-2 pb-1 border-primary focus:outline-none transition">
-                            For You
-                            </button>
-                        </div>
-                            <div>
-                                <button href="#" onclick="active(this)" class="tab-btn text-black text-xl border-b-2 pb-1 border-black hover:border-primary focus:outline-none transition">
-                                Following
-                                </button>
-                            </div>
-                        </div>
-
-
-                   <!-- For You Tab -->
-                    <div class="flex flex-col justify-center items-center" id="forYou">
-                    <!-- Single Post -->
-                    <div class="mt-6 flex justify-center items-center w-full md:w-7/12">
-                        <div class="border border-primary w-10/12 rounded-md p-3 shadow-md">
-                           <!-- User -->
-                             <div class="flex items-center px-5">
-                                <!-- Pfp -->
-                                <div>
-                                    <img src="images/avatar.png" class="w-10" alt="">
-                                </div>
-                                
-                                <!-- Username -->
-                                <div class="flex gap-1 text-md ml-3 justify-center items-center">
-                                    <p>
-                                        Lorem
-                                    </p>
-                                    <p class="text-gray-500 text-xs">
-                                        @lorem_test
-                                    </p>
-                                </div>
-                             </div>
-                            <!-- User -->
-
-                            <!-- Content -->
-                            <div class="mt-2 px-5">
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, rerum. Beatae laborum, et cupiditate cumque error voluptas autem minus praesentium!
-                                </p>
-                            </div>
-
-                            <!-- Interaction -->
-                             <div class="flex mt-4 mb-1 items-start justify-between gap-5 w-full px-5">
-                                <div class="flex gap-4">
-                                    <p class="cursor-pointer" onclick="toggleLike()">
-                                        <i class="fa-regular fa-heart text-black" id="likeIcon"></i>
-                                        <span id="likeCount">721</span>
-                                    </p>
-                                    <p class="cursor-pointer" onclick="toggleRepost()">
-                                        <i class="fa-solid fa-repeat" id="repostIcon"></i>
-                                    </p>
-                                </div>
-                                
-                                <div>
-                                    <p class="cursor-pointer" onclick="toggleSave()">
-                                    <i class="fa-regular fa-bookmark" id="saveIcon"></i>
-                                </p>
-                                </div>
-                             </div>
-
-                        </div>
-                    </div>
-                    <!-- Single Post End -->
-
-                    <!-- Single Post -->
-                    <div class="mt-6 flex justify-center items-center w-full md:w-7/12">
-                        <div class="border border-primary w-10/12 rounded-md p-3 shadow-md">
-                           <!-- User -->
-                             <div class="flex items-center px-5">
-                                <!-- Pfp -->
-                                <div>
-                                    <img src="images/avatar.png" class="w-10" alt="">
-                                </div>
-                                
-                                <!-- Username -->
-                                <div class="flex gap-1 text-xs ml-3">
-                                    <p>
-                                        Lorem
-                                    </p>
-                                    <p class="text-gray-500">
-                                        @lorem_ipsum
-                                    </p>
-                                </div>
-                             </div>
-                            <!-- User -->
-
-                            <!-- Content -->
-                            <div class="mt-2 px-5">
-                                <!-- Pict -->
-                               <div class="flex gap-2">
-                                 <img src="images/products/product10.jpg" class="w-80 h-auto mb-2 border border-primary" alt="">
-                                 <div>
-                                    <img src="images/products/product10.jpg" class="w-40 h-auto mb-2 border border-primary" alt="">
-                                    <img src="images/products/product10.jpg" class="w-40 h-auto mb-2 border border-primary" alt="">
-                                 </div>
-                                 <div>
-                                    <img src="images/products/product10.jpg" class="w-40 h-auto mb-2 border border-primary" alt="">
-                                    <img src="images/products/product10.jpg" class="w-40 h-auto mb-2 border border-primary" alt="">
-                                 </div>
-                               </div>
-                               <!-- Caption -->
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, rerum. Beatae laborum, et cupiditate cumque error voluptas autem minus praesentium!
-                                </p>
-                            </div>
-
-                            <!-- Interaction -->
-                             <div class="flex mt-4 mb-1 items-start justify-between gap-5 w-full px-5">
-                                <div class="flex gap-4">
-                                    <p class="cursor-pointer" onclick="toggleLike()">
-                                        <i class="fa-regular fa-heart text-black" id="likeIcon"></i>
-                                        <span id="likeCount">721</span>
-                                    </p>
-                                    <p class="cursor-pointer" onclick="toggleRepost()">
-                                        <i class="fa-solid fa-repeat" id="repostIcon"></i>
-                                    </p>
-                                </div>
-                                
-                                <div>
-                                    <p class="cursor-pointer" onclick="toggleSave()">
-                                    <i class="fa-regular fa-bookmark" id="saveIcon"></i>
-                                </p>
-                                </div>
-                             </div>
-
-                        </div>
-                    </div>
-                    <!-- Single Post End -->
-
-                    <!-- Single Post -->
-                    <div class="mt-6 flex justify-center items-center w-full md:w-7/12">
-                        <div class="border border-primary w-10/12 rounded-md p-3 shadow-md">
-                           <!-- User -->
-                             <div class="flex items-center px-5">
-                                <!-- Pfp -->
-                                <div>
-                                    <img src="images/avatar.png" class="w-10" alt="">
-                                </div>
-                                
-                                <!-- Username -->
-                                <div class="flex gap-1 text-xs ml-3">
-                                    <p>
-                                        Lorem
-                                    </p>
-                                    <p class="text-gray-500">
-                                        @lorem_ipsum
-                                    </p>
-                                </div>
-                             </div>
-                            <!-- User -->
-
-                            <!-- Content -->
-                            <div class="mt-2 px-5">
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Id quis dignissimos quod sequi perspiciatis eveniet distinctio. Magni dicta, et officiis ab commodi ducimus odit odio facilis a. Repudiandae error perspiciatis nulla voluptatum at alias, mollitia ipsum rem nam in officia quod natus architecto non sequi, reprehenderit numquam vitae ex qui!
-                                </p>
-                            </div>
-
-                            <!-- Interaction -->
-                             <div class="flex mt-4 mb-1 items-start justify-between gap-5 w-full px-5">
-                                <div class="flex gap-4">
-                                    <p class="cursor-pointer" onclick="toggleLike()">
-                                        <i class="fa-regular fa-heart text-black" id="likeIcon"></i>
-                                        <span id="likeCount">721</span>
-                                    </p>
-                                    <p class="cursor-pointer" onclick="toggleRepost()">
-                                        <i class="fa-solid fa-repeat" id="repostIcon"></i>
-                                    </p>
-                                </div>
-                                
-                                <div>
-                                    <p class="cursor-pointer" onclick="toggleSave()">
-                                    <i class="fa-regular fa-bookmark" id="saveIcon"></i>
-                                </p>
-                                </div>
-                             </div>
-
-                        </div>
-                    </div>
-                    <!-- Single Post End -->
-                    </div>
-
-                   <!-- Following Tab -->
-                    <div class="flex flex-col justify-center items-center" id="following">
-                    
-
-                    <!-- Single Post -->
-                    <div class="mt-6 flex justify-center items-center w-full md:w-7/12">
-                        <div class="border border-primary w-10/12 rounded-md p-3 shadow-md">
-                           <!-- User -->
-                             <div class="flex items-center px-5">
-                                <!-- Pfp -->
-                                <div>
-                                    <img src="images/avatar.png" class="w-10" alt="">
-                                </div>
-                                
-                                <!-- Username -->
-                                <div class="flex gap-1 text-xs ml-3">
-                                    <p>
-                                        Lorem
-                                    </p>
-                                    <p class="text-gray-500">
-                                        @lorem_ipsum
-                                    </p>
-                                </div>
-                             </div>
-                            <!-- User -->
-
-                            <!-- Content -->
-                            <div class="mt-2 px-5">
-                                <!-- Pict -->
-                               <div class="flex gap-2">
-                                 <img src="images/products/product10.jpg" class="w-80 h-auto mb-2 border border-primary" alt="">
-                                 <div>
-                                    <img src="images/products/product10.jpg" class="w-40 h-auto mb-2 border border-primary" alt="">
-                                    <img src="images/products/product10.jpg" class="w-40 h-auto mb-2 border border-primary" alt="">
-                                 </div>
-                                 <div>
-                                    <img src="images/products/product10.jpg" class="w-40 h-auto mb-2 border border-primary" alt="">
-                                    <img src="images/products/product10.jpg" class="w-40 h-auto mb-2 border border-primary" alt="">
-                                 </div>
-                               </div>
-                               <!-- Caption -->
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, rerum. Beatae laborum, et cupiditate cumque error voluptas autem minus praesentium!
-                                </p>
-                            </div>
-
-                            <!-- Interaction -->
-                             <div class="flex mt-4 mb-1 items-start justify-between gap-5 w-full px-5">
-                                <div class="flex gap-4">
-                                    <p class="cursor-pointer" onclick="toggleLike()">
-                                        <i class="fa-regular fa-heart text-black" id="likeIcon"></i>
-                                        <span id="likeCount">721</span>
-                                    </p>
-                                    <p class="cursor-pointer" onclick="toggleRepost()">
-                                        <i class="fa-solid fa-repeat" id="repostIcon"></i>
-                                    </p>
-                                </div>
-                                
-                                <div>
-                                    <p class="cursor-pointer" onclick="toggleSave()">
-                                    <i class="fa-regular fa-bookmark" id="saveIcon"></i>
-                                </p>
-                                </div>
-                             </div>
-
-                        </div>
-                    </div>
-                    <!-- Single Post End -->
-
-                    <!-- Single Post -->
-                    <div class="mt-6 flex justify-center items-center w-full md:w-7/12">
-                        <div class="border border-primary w-10/12 rounded-md p-3 shadow-md">
-                           <!-- User -->
-                             <div class="flex items-center px-5">
-                                <!-- Pfp -->
-                                <div>
-                                    <img src="images/avatar.png" class="w-10" alt="">
-                                </div>
-                                
-                                <!-- Username -->
-                                <div class="flex gap-1 text-xs ml-3">
-                                    <p>
-                                        Lorem
-                                    </p>
-                                    <p class="text-gray-500">
-                                        @lorem_ipsum
-                                    </p>
-                                </div>
-                             </div>
-                            <!-- User -->
-
-                            <!-- Content -->
-                            <div class="mt-2 px-5">
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Id quis dignissimos quod sequi perspiciatis eveniet distinctio. Magni dicta, et officiis ab commodi ducimus odit odio facilis a. Repudiandae error perspiciatis nulla voluptatum at alias, mollitia ipsum rem nam in officia quod natus architecto non sequi, reprehenderit numquam vitae ex qui!
-                                </p>
-                            </div>
-
-                            <!-- Interaction -->
-                             <div class="flex mt-4 mb-1 items-start justify-between gap-5 w-full px-5">
-                                <div class="flex gap-4">
-                                    <p class="cursor-pointer" onclick="toggleLike()">
-                                        <i class="fa-regular fa-heart text-black" id="likeIcon"></i>
-                                        <span id="likeCount">721</span>
-                                    </p>
-                                    <p class="cursor-pointer" onclick="toggleRepost()">
-                                        <i class="fa-solid fa-repeat" id="repostIcon"></i>
-                                    </p>
-                                </div>
-                                
-                                <div>
-                                    <p class="cursor-pointer" onclick="toggleSave()">
-                                    <i class="fa-regular fa-bookmark" id="saveIcon"></i>
-                                </p>
-                                </div>
-                             </div>
-
-                        </div>
-                    </div>
-                    <!-- Single Post End -->
-                    </div>
-
-                    <footer>
-                        <div class="flex justify-center items-center gap-4 mt-12">
-                            <p class="text-xs text-gray-500">© 2025 TwiiAhh; Team 3. All rights reserved.</p>
-                            <a href="#" class="text-xs text-gray-500 hover:text-secondary">Privacy Policy</a>
-                            <a href="#" class="text-xs text-gray-500 hover:text-secondary">Terms of Service</a>
-                        </div>
-                    </footer>
-
-                 </main>
-
+                
                 </div>
                     
                 <!-- Feeds -->
@@ -667,14 +670,16 @@
   const sidebar = document.getElementById('sidebar');
 
   toggleBtn.addEventListener('click', () => {
-    if (sidebar.classList.contains('-left-80')) {
-      sidebar.classList.remove('-left-80');
-      sidebar.classList.add('left-0');
-      sidebar.classList.add('lg:left-0');
+    if (sidebar.classList.contains('w-96')) {
+      sidebar.classList.remove('w-96');
+      sidebar.classList.add('w-0');
+      sidebar.classList.add('overflow-hidden');
+      sidebar.classList.add('lg:w-0');
     } else {
-      sidebar.classList.add('-left-80');
-      sidebar.classList.remove('left-0');
-      sidebar.classList.remove('lg:left-0');
+      sidebar.classList.add('w-96');
+      sidebar.classList.remove('w-0');
+        sidebar.classList.remove('overflow-hidden');
+      sidebar.classList.remove('lg:w-0');
     }
   });
 </script>
