@@ -20,6 +20,9 @@ module.exports = {
         roboto: "'Roboto', sans-serif",
         saintregus: "'SaintRegus', sans-serif",
       },
+      size: {
+        68: '68px',
+      },
       colors: {
         primary: "#CCFF02",
         secondary: "#0768EA",

@@ -8,6 +8,7 @@
   <!-- Logo -->
    <link rel="icon" href="images/TwiiAhh Logo 2.svg" type="image/svg+xml">
 
+
   <!-- CSS -->
     <link rel="stylesheet" href="style.css">   
     
@@ -42,11 +43,11 @@
   let following = ["Ibnu", "Yazid"];
 
   function showTab(tabId) {
-    const tabs = ['view-tab', 'edit-tab', 'settings-tab'];
+    const tabs = ['view-tab', 'edit-tab'];
     tabs.forEach(id => document.getElementById(id).classList.add('hidden'));
     document.getElementById(tabId).classList.remove('hidden');
 
-    const btns = ['btn-view', 'btn-edit', 'btn-settings'];
+    const btns = ['btn-view', 'btn-edit'];
     btns.forEach(id => {
       const btn = document.getElementById(id);
       btn.classList.remove('bg-transparent', 'text-secondary', 'border-secondary');
@@ -170,15 +171,42 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 </head>
-<body class="bg-teritary font-sans">
+<body class="bg-teritary font-sans overflow-y-hidden">
 
-  <div class="min-h-screen flex">
+   <!-- Navbar -->
+    <header class="w-full backdrop-blur-md bg-opacity-70">
+        <nav class="flex justify-center px-6 border-b border-primary py-4">
+
+            <!-- Search Bar -->
+           <div class="w-6/12 items-center justify-center">
+             <div class="relative">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">
+                    <i class="fas fa-search"></i>
+                </span>
+                    <input
+                    type="text"
+                    placeholder="Search..."
+                    class="w-full pl-10 pr-4 py-2 border border-primary rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition"
+                    />
+                </div>
+           </div>
+        </nav>
+    </header>
+
+        <div class="flex flex-row">
+
+            <!-- Burger -->
+             <button id="menu-toggle" class=" absolute top-4 left-4 z-50 p-2">
+                <i class="fas fa-bars text-primary text-2xl"></i>
+            </button>
+            <!-- Burger -->
 
      <!-- Left Bar -->
-             <section class="sticky w-80 h-full flex flex-col py-6 px-6 justify-items-start border-r border-primary bg-teritary space-y-6">
+             <section id="sidebar" id="sidebar" class="sticky w-64 h-screen max-h-screen flex flex-col py-6 px-6 justify-items-start border-r border-primary bg-teritary space-y-6 
+                transition-all duration-300 z-40 lg:l overflow-x-hidden whitespace-nowrap overflow-y-auto">
                 <!-- Logo -->
                  <div class="flex px-4">
-                    <img src="images/TwiiAhh Logo.svg" class="w-9/12" alt="">
+                    <img src="images/TwiiAhh Logo.svg" class="w-10/12" alt="">
                  </div>
 
                 <!-- Date -->
@@ -188,7 +216,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 <!-- Link -->
                  <div class="flex px-4 flex-col items-start space-y-8">
-                    <a class="text-xl text-black hover:text-secondary transition flex items-center gap-5" href="index.html">
+                    <a class="text-xl hover:text-secondary transition flex items-center gap-5" href="index.html">
                         <i class="fa-solid fa-house"></i>
                         <span>Home</span>
                     </a>
@@ -200,11 +228,11 @@ document.addEventListener("DOMContentLoaded", function () {
                         <i class="fa-solid fa-user"></i>
                         <span>Profile</span>
                     </a>
-                    <a class="text-xl hover:text-secondary transition flex items-center gap-5" href="profile.html">
+                    <a class="text-xl hover:text-secondary transition flex items-center gap-5" href="settings.html">
                         <i class="fa-solid fa-gear"></i>
                         <span>Settings</span>
                     </a>
-                    <a class="text-xl hover:text-secondary transition flex items-center gap-5" href="">
+                    <a class="text-xl hover:text-secondary transition flex items-center gap-5" href="credit.html">
                         <i class="fa-regular fa-square-ellipsis"></i>
                         <span>Credit</span>
                     </a>
@@ -212,36 +240,43 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 <!-- Post -->
                  <div class="my-5">
-                    <a class="flex text-2xl bg-primary border border-primary justify-center p-2 w-52 rounded-full hover:text-secondary hover:border-secondary transition hover:bg-transparent uppercase" href="">
+                    <a class="flex text-2xl bg-primary border border-primary justify-center p-2 w-52 rounded-full hover:text-secondary hover:border-secondary transition hover:bg-transparent uppercase" href="CRUD/post.html">
                         Post
                     </a>
                  </div>
-
              </section>
-                <!-- Left Bar -->
+      <!-- Left Bar -->
 
     <!-- Profile Section -->
-    <main class="flex-1 w-full py-6 justify-end item end">
-      <div class="w-1/2 mx-auto bg-teritary p-6 rounded-2xl shadow-md">
+    <main class="flex-1 w-full h-screen py-6 justify-end item end overflow-y-scroll">
+      <div class="w-11/12 mx-auto bg-teritary p-6 rounded-2xl shadow-md">
 
         <!-- Tabs -->
         <div class="flex gap-2 mb-6">
-          <button id="btn-view" onclick="showTab('view-tab')" class="bg-transparent border border-secondary text-black px-4 py-2 rounded-full">View</button>
-          <button id="btn-edit" onclick="showTab('edit-tab')" class="bg-primary text-black border border-primary px-4 py-2 rounded-full">Edit</button>
-          <button id="btn-settings" onclick="showTab('settings-tab')" class="bg-primary text-black border border-primary px-4 py-2 rounded-full">Settings</button>
+          <button id="btn-view" onclick="showTab('view-tab')" class="bg-transparent border border-secondary text-black px-4 py-2 rounded-full hover:bg-transparent hover:border-secondary hover:text-secondary transition duration-300">View</button>
+          <button id="btn-edit" onclick="showTab('edit-tab')" class="bg-primary text-black border border-primary px-4 py-2 rounded-full hover:bg-transparent hover:border-secondary hover:text-secondary transition duration-300">Edit</button>
         </div>
 
         <!-- View Profile Tab -->
 <div id="view-tab">
   <div class="flex items-center space-x-4">
-    <img src="./images/me2.jpg" alt="Profile" class="w-20 h-20 rounded-full object-cover">
+    <img src="./images/avatar.png" alt="Profile" class="w-20 h-20 rounded-full object-cover">
     <div>
-      <h2 id="view-name" class="text-xl font-semibold text-gray-900">Mohammad Yazid</h2>
-      <p id="view-username" class="text-sm text-gray-600">Full Stack Developer</p>
+      <div class="flex gap-2 items-center">
+        <h2 id="view-name" class="text-xl font-semibold text-gray-900">Lorem Ipsum</h2>
+        <h2 id="view-name" class="text-sm font-semibold text-gray-500">@lorem_ipsum</h2>
+      </div>
+      <div class="flex gap-2">
+        <p id="view-username" class="text-sm text-gray-600">They/Them</p>
+      <p id="view-username" class="text-sm text-gray-600">
+        Female
+        <i class="fa-solid fa-venus"></i>
+      </p>
+      </div>
     </div>
   </div>
   <p id="view-bio" class="mt-4 text-sm text-gray-700">
-    Seorang developer yang suka membangun projek web dan eksperimen .
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui est voluptate doloremque atque doloribus quisquam libero tempora, asperiores ducimus harum similique reprehenderit tempore vitae reiciendis quibusdam expedita quaerat. Doloribus, repellendus?
   </p>
   <div class="mt-6 grid grid-cols-3 text-center text-sm text-gray-700">
   <div>
@@ -269,30 +304,247 @@ document.addEventListener("DOMContentLoaded", function () {
   <div id="following-container" class="space-y-4"></div>
 </div>
 </div>
-</div>
+
 </div>
 
-        <!-- Edit Profile Tab -->
+
+
+<!-- Edit Profile Tab -->
 <div id="edit-tab" class="hidden px-5">
   <form id="edit-form" class="space-y-4">
-    <div>
-      <label class="block text-sm font-medium text-gray-700">Nama Penuh</label>
-      <input id="edit-name" type="text" class="mt-1 w-full px-4 py-2 border rounded-lg" value="Mohammad Yazid">
+    <!-- Single Info -->
+    <div class="space-x-4 w-full flex">
+      <div class="w-1/2">
+        <label class="block text-sm font-medium text-gray-700">First Name</label>
+        <input id="edit-name" type="text" class="mt-1 w-full px-4 py-2 border rounded-lg border-primary focus:outline-secondary" value="Lorem">
+      </div>
+      <div class="w-1/2">
+        <label class="block text-sm font-medium text-gray-700">Last Name</label>
+        <input id="edit-name" type="text" class="mt-1 w-full px-4 py-2 border rounded-lg border-primary focus:outline-secondary" value="Ipsum">
+      </div>
     </div>
-    <div>
-      <label class="block text-sm font-medium text-gray-700">Username</label>
-      <input id="edit-username" type="text" class="mt-1 w-full px-4 py-2 border rounded-lg" value="Full Stack Developer">
+    <!-- Single Info -->
+    <!-- Single Info -->
+    <div class="space-x-4 w-full flex">
+      <div class="w-full">
+        <label class="block text-sm font-medium text-gray-700">Gmail Address</label>
+        <input id="edit-name" type="text" class="mt-1 w-full px-4 py-2 border rounded-lg border-primary focus:outline-secondary" value="lorem@gmail.com">
+      </div>
     </div>
-    <div>
-      <label class="block text-sm font-medium text-gray-700">Bio</label>
-      <textarea id="edit-bio" class="mt-1 w-full px-4 py-2 border rounded-lg" rows="3">Seorang developer yang suka membangun projek web...</textarea>
+    <!-- Single Info -->
+    <!-- Single Info -->
+    <div class="space-x-4 w-full flex">
+      <div class="w-1/2">
+        <label class="block text-sm font-medium text-gray-700">Old Password</label>
+        <input id="edit-name" type="text" class="mt-1 w-full px-4 py-2 border rounded-lg border-primary focus:outline-secondary" value="">
+      </div>
+      <div class="w-1/2">
+        <label class="block text-sm font-medium text-gray-700">New Password</label>
+        <input id="edit-name" type="text" class="mt-1 w-full px-4 py-2 border rounded-lg border-primary focus:outline-secondary" value="">
+      </div>
     </div>
+    <!-- Single Info -->
+     <!-- Single Info -->
+    <div class="space-x-4 w-full flex">
+      <div class="w-1/2">
+        <label class="block text-sm font-medium text-gray-700">Country</label>
+        <select name="" id="" class="mt-1 w-full px-4 py-2 border rounded-lg border-primary focus:outline-secondary">
+          <option value="Indonesia">Indonesia</option>
+          <option value="US">US</option>
+          <option value="UK">UK</option>
+          <option value="Russia">Rusia</option>
+          <option value="Jokowi">Jokowi</option>
+        </select>
+      </div>
+      <div class="w-1/2">
+        <label class="block text-sm font-medium text-gray-700">Phone</label>
+        <div class="w-full">
+          <input id="edit-name" type="text" class="mt-1 w-full px-4 py-2 border rounded-lg border-primary focus:outline-secondary" value="+62 888-8888-8888">
+        </div>
+      </div>
+    </div>
+    <!-- Single Info -->
+
+    <!-- Save Btn -->
     <div>
-      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700">Simpan</button>
+      <button type="submit" class="bg-primary text-black px-4 py-2 rounded-full border border-primary hover:bg-transparent hover:border-secondary hover:text-secondary transition duration-300">Simpan</button>
     </div>
   </form>
 </div>
 
+</div>
+
+ <!-- For You Tab -->
+                    <div class="flex flex-col justify-center items-center pb-48" id="forYou">
+                    <!-- Single Post -->
+                    <div class="mt-6 flex justify-center items-center w-full">
+                        <div class="border border-primary w-10/12 rounded-md p-3 shadow-md">
+                           <!-- User -->
+                             <div class="flex items-center px-5">
+                                <!-- Pfp -->
+                                <div>
+                                    <img src="images/avatar.png" class="w-10" alt="">
+                                </div>
+                                
+                                <!-- Username -->
+                                <div class="flex gap-1 text-md ml-3 justify-center items-center">
+                                    <p>
+                                        Lorem
+                                    </p>
+                                    <p class="text-gray-500 text-xs">
+                                        @lorem_test
+                                    </p>
+                                </div>
+                             </div>
+                            <!-- User -->
+
+                            <!-- Content -->
+                            <div class="mt-2 px-5">
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, rerum. Beatae laborum, et cupiditate cumque error voluptas autem minus praesentium!
+                                </p>
+                            </div>
+
+                            <!-- Interaction -->
+                             <div class="flex mt-4 mb-1 items-start justify-between gap-5 w-full px-5">
+                                <div class="flex gap-4">
+                                    <p class="cursor-pointer" onclick="toggleLike()">
+                                        <i class="fa-regular fa-heart text-black" id="likeIcon"></i>
+                                        <span id="likeCount">721</span>
+                                    </p>
+                                    <p class="cursor-pointer" onclick="toggleRepost()">
+                                        <i class="fa-solid fa-repeat" id="repostIcon"></i>
+                                    </p>
+                                </div>
+                                
+                                <div>
+                                    <p class="cursor-pointer" onclick="toggleSave()">
+                                    <i class="fa-regular fa-bookmark" id="saveIcon"></i>
+                                </p>
+                                </div>
+                             </div>
+
+                        </div>
+                    </div>
+                    <!-- Single Post End -->
+
+                    <!-- Single Post -->
+                    <div class="mt-6 flex justify-center items-center w-full">
+                        <div class="border border-primary w-10/12 rounded-md p-3 shadow-md">
+                           <!-- User -->
+                             <div class="flex items-center px-5">
+                                <!-- Pfp -->
+                                <div>
+                                    <img src="images/avatar.png" class="w-10" alt="">
+                                </div>
+                                
+                                <!-- Username -->
+                                <div class="flex gap-1 text-xs ml-3">
+                                    <p>
+                                        Lorem
+                                    </p>
+                                    <p class="text-gray-500">
+                                        @lorem_ipsum
+                                    </p>
+                                </div>
+                             </div>
+                            <!-- User -->
+
+                            <!-- Content -->
+                            <div class="mt-2 px-5">
+                                <!-- Pict -->
+                               <div class="flex gap-2">
+                                 <img src="images/products/product10.jpg" class="w-80 h-auto mb-2 border border-primary" alt="">
+                                 <div>
+                                    <img src="images/products/product10.jpg" class="w-40 h-auto mb-2 border border-primary" alt="">
+                                    <img src="images/products/product10.jpg" class="w-40 h-auto mb-2 border border-primary" alt="">
+                                 </div>
+                                 <div>
+                                    <img src="images/products/product10.jpg" class="w-40 h-auto mb-2 border border-primary" alt="">
+                                    <img src="images/products/product10.jpg" class="w-40 h-auto mb-2 border border-primary" alt="">
+                                 </div>
+                               </div>
+                               <!-- Caption -->
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, rerum. Beatae laborum, et cupiditate cumque error voluptas autem minus praesentium!
+                                </p>
+                            </div>
+
+                            <!-- Interaction -->
+                             <div class="flex mt-4 mb-1 items-start justify-between gap-5 w-full px-5">
+                                <div class="flex gap-4">
+                                    <p class="cursor-pointer" onclick="toggleLike()">
+                                        <i class="fa-regular fa-heart text-black" id="likeIcon"></i>
+                                        <span id="likeCount">721</span>
+                                    </p>
+                                    <p class="cursor-pointer" onclick="toggleRepost()">
+                                        <i class="fa-solid fa-repeat" id="repostIcon"></i>
+                                    </p>
+                                </div>
+                                
+                                <div>
+                                    <p class="cursor-pointer" onclick="toggleSave()">
+                                    <i class="fa-regular fa-bookmark" id="saveIcon"></i>
+                                </p>
+                                </div>
+                             </div>
+
+                        </div>
+                    </div>
+                    <!-- Single Post End -->
+
+                    <!-- Single Post -->
+                    <div class="mt-6 flex justify-center items-center w-full">
+                        <div class="border border-primary w-10/12 rounded-md p-3 shadow-md">
+                           <!-- User -->
+                             <div class="flex items-center px-5">
+                                <!-- Pfp -->
+                                <div>
+                                    <img src="images/avatar.png" class="w-10" alt="">
+                                </div>
+                                
+                                <!-- Username -->
+                                <div class="flex gap-1 text-xs ml-3">
+                                    <p>
+                                        Lorem
+                                    </p>
+                                    <p class="text-gray-500">
+                                        @lorem_ipsum
+                                    </p>
+                                </div>
+                             </div>
+                            <!-- User -->
+
+                            <!-- Content -->
+                            <div class="mt-2 px-5">
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Id quis dignissimos quod sequi perspiciatis eveniet distinctio. Magni dicta, et officiis ab commodi ducimus odit odio facilis a. Repudiandae error perspiciatis nulla voluptatum at alias, mollitia ipsum rem nam in officia quod natus architecto non sequi, reprehenderit numquam vitae ex qui!
+                                </p>
+                            </div>
+
+                            <!-- Interaction -->
+                             <div class="flex mt-4 mb-1 items-start justify-between gap-5 w-full px-5">
+                                <div class="flex gap-4">
+                                    <p class="cursor-pointer" onclick="toggleLike()">
+                                        <i class="fa-regular fa-heart text-black" id="likeIcon"></i>
+                                        <span id="likeCount">721</span>
+                                    </p>
+                                    <p class="cursor-pointer" onclick="toggleRepost()">
+                                        <i class="fa-solid fa-repeat" id="repostIcon"></i>
+                                    </p>
+                                </div>
+                                
+                                <div>
+                                    <p class="cursor-pointer" onclick="toggleSave()">
+                                    <i class="fa-regular fa-bookmark" id="saveIcon"></i>
+                                </p>
+                                </div>
+                             </div>
+
+                        </div>
+                    </div>
+                    <!-- Single Post End -->
+                    </div>
 
         <!-- Settings Tab -->
         <div id="settings-tab" class="hidden px-5">
@@ -321,6 +573,22 @@ document.addEventListener("DOMContentLoaded", function () {
       </div>
     </main>
   </div>
+
+  <script>
+     const toggleBtn = document.getElementById('menu-toggle');
+  const sidebar = document.getElementById('sidebar');
+
+  toggleBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('-translate-x-full');
+      if (sidebar.classList.contains('w-96')) {
+          sidebar.classList.remove('w-96');
+          sidebar.classList.add('w-0');
+      } else {
+          sidebar.classList.add('w-96');
+          sidebar.classList.remove('w-0');
+      }
+  });
+  </script>
 
 </body>
 </html>

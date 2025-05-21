@@ -3,9 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Settings | TwiiAhh</title>
+
+     <!-- Logo -->
+   <link rel="icon" href="images/TwiiAhh Logo 2.svg" type="image/svg+xml">
+
+
+  <!-- CSS -->
+    <link rel="stylesheet" href="style.css">   
+    
+    <style>
+        .text-10px {
+            font-size: 10px;
+        }
+    </style>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-thin.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-solid.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-regular.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-light.css">
+
 </head>
 <body>
+    <!-- Navbar -->
+    <header class="w-full backdrop-blur-md bg-opacity-70">
+        <nav class="flex justify-center px-6 border-b border-primary py-4">
+
+            <!-- Search Bar -->
+           <div class="w-6/12 items-center justify-center">
+             <div class="relative">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">
+                    <i class="fas fa-search"></i>
+                </span>
+                    <input
+                    type="text"
+                    placeholder="Search..."
+                    class="w-full pl-10 pr-4 py-2 border border-primary rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition"
+                    />
+                </div>
+           </div>
+        </nav>
+    </header>
+
+        <div class="flex flex-row">
+
+            <!-- Burger -->
+             <button id="menu-toggle" class=" absolute top-4 left-4 z-50 p-2">
+                <i class="fas fa-bars text-primary text-2xl"></i>
+            </button>
+            <!-- Burger -->
     
+     <!-- Left Bar -->
+             <section id="sidebar" id="sidebar" class=" w-64 h-screen max-h-screen flex flex-col py-6 px-6 justify-items-start border-r border-primary bg-teritary space-y-6 
+                transition-all duration-300 z-40 lg:l overflow-x-hidden whitespace-nowrap overflow-y-auto">
+                <!-- Logo -->
+                 <div class="flex px-4">
+                    <img src="images/TwiiAhh Logo.svg" class="w-10/12" alt="">
+                 </div>
+
+                <!-- Date -->
+                 <div class="px-4 mt-4 flex">
+                    <h1>Monday, 1st January, 2025</h1>
+                 </div>
+
+                <!-- Link -->
+                 <div class="flex px-4 flex-col items-start space-y-8">
+                    <a class="text-xl hover:text-secondary transition flex items-center gap-5" href="index.html">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Home</span>
+                    </a>
+                    <a class="text-xl ml-0.5 hover:text-secondary transition flex items-center gap-6" href="bookmarks.html">
+                        <i class="fa-solid fa-bookmark"></i>
+                        <span>Bookmarks</span>
+                    </a>
+                    <a class="text-xl hover:text-secondary transition flex items-center gap-6" href="profile.html">
+                        <i class="fa-solid fa-user"></i>
+                        <span>Profile</span>
+                    </a>
+                    <a class="text-xl text-secondary transition flex items-center gap-5" href="settings.html">
+                        <i class="fa-solid fa-gear"></i>
+                        <span>Settings</span>
+                    </a>
+                    <a class="text-xl hover:text-secondary transition flex items-center gap-5" href="credit.html">
+                        <i class="fa-regular fa-square-ellipsis"></i>
+                        <span>Credit</span>
+                    </a>
+                </div>
+
+                <!-- Post -->
+                 <div class="my-5">
+                    <a class="flex text-2xl bg-primary border border-primary justify-center p-2 w-52 rounded-full hover:text-secondary hover:border-secondary transition hover:bg-transparent uppercase" href="CRUD/post.html">
+                        Post
+                    </a>
+                 </div>
+             </section>
+      <!-- Left Bar -->
+
+             <script>
+     const toggleBtn = document.getElementById('menu-toggle');
+  const sidebar = document.getElementById('sidebar');
+
+  toggleBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('-translate-x-full');
+      if (sidebar.classList.contains('w-96')) {
+          sidebar.classList.remove('w-96');
+          sidebar.classList.add('w-0');
+      } else {
+          sidebar.classList.add('w-96');
+          sidebar.classList.remove('w-0');
+      }
+  });
+  </script>
+
 </body>
 </html>

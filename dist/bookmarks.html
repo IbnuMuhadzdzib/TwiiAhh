@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bookmarks | TwiiAah</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmarks | TwiiAhh</title>
 
+    
   <!-- Logo -->
    <link rel="icon" href="images/TwiiAhh Logo 2.svg" type="image/svg+xml">
-
-  <!-- CSS -->
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">   
     
     <style>
@@ -23,13 +24,12 @@
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-solid.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-regular.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/sharp-light.css">
-
 </head>
-<body class="bg-teritary font-sans">
+<body class="h-screen overflow-y-hidden">
 
     <!-- Navbar -->
     <header class="w-full backdrop-blur-md bg-opacity-70">
-        <nav class="flex justify-center px-6 border-b border-primary py-2.5">
+        <nav class="flex justify-center px-6 border-b border-primary py-4">
 
             <!-- Search Bar -->
            <div class="w-6/12 items-center justify-center">
@@ -46,15 +46,18 @@
            </div>
         </nav>
     </header>
+
         <div class="flex flex-row">
 
-  <button id="menu-toggle" class=" absolute top-4 left-4 z-50 p-2">
+            <!-- Burger -->
+             <button id="menu-toggle" class=" absolute top-4 left-4 z-50 p-2">
                 <i class="fas fa-bars text-primary text-2xl"></i>
             </button>
+            <!-- Burger -->
 
-     <!-- Left Bar -->
+            <!-- Left Bar -->
 
-             <section id="sidebar" id="sidebar" class=" w-96 h-screen max-h-screen flex flex-col py-6 px-6 justify-items-start border-r border-primary bg-teritary space-y-6 
+             <section id="sidebar" id="sidebar" class="sticky w-80 h-screen max-h-screen flex flex-col py-6 px-6 justify-items-start border-r border-primary bg-teritary space-y-6 
                 transition-all duration-300 z-40 lg:l overflow-x-hidden whitespace-nowrap overflow-y-auto">
                 <!-- Logo -->
                  <div class="flex px-4">
@@ -68,7 +71,7 @@
 
                 <!-- Link -->
                  <div class="flex px-4 flex-col items-start space-y-8">
-                    <a class="text-xl peer-hover:text-secondary transition flex items-center gap-5" href="index.html">
+                    <a class="text-xl hover:text-secondary transition flex items-center gap-5" href="index.html">
                         <i class="fa-solid fa-house"></i>
                         <span>Home</span>
                     </a>
@@ -80,7 +83,7 @@
                         <i class="fa-solid fa-user"></i>
                         <span>Profile</span>
                     </a>
-                    <a class="text-xl hover:text-secondary transition flex items-center gap-5" href="profile.html">
+                    <a class="text-xl hover:text-secondary transition flex items-center gap-5" href="settings.html">
                         <i class="fa-solid fa-gear"></i>
                         <span>Settings</span>
                     </a>
@@ -99,16 +102,14 @@
 
                 <!-- Post -->
                  <div class="my-5">
-                    <a class="flex text-2xl bg-primary border border-primary justify-center p-2 w-52 rounded-full hover:text-secondary hover:border-secondary transition hover:bg-transparent uppercase" href="">
+                    <a class="flex text-2xl bg-primary border border-primary justify-center p-2 w-52 rounded-full hover:text-secondary hover:border-secondary transition hover:bg-transparent uppercase" href="CRUD/post.html">
                         Post
                     </a>
                  </div>
-
              </section>
                 <!-- Left Bar -->
 
-                <section class="flex justify-end">
-                  <main class= "flex flex-col items-center w-10/12 h-full max-h-screen overflow-y-scroll">
+                 <main class= "flex flex-col items-center w-full h-full max-h-screen overflow-y-scroll pt-4">
                    <!-- For You Tab -->
                     <div class="flex flex-col justify-center items-center" id="forYou">
                     <!-- Single Post -->
@@ -403,36 +404,133 @@
                     <!-- Single Post End -->
                     </div>
 
-                    <footer>
-                        <div class="flex justify-center items-center gap-4 mt-12">
-                            <p class="text-xs text-gray-500">© 2025 TwiiAhh; Team 3. All rights reserved.</p>
-                            <a href="#" class="text-xs text-gray-500 hover:text-secondary">Privacy Policy</a>
-                            <a href="#" class="text-xs text-gray-500 hover:text-secondary">Terms of Service</a>
-                        </div>
-                    </footer>
-
                  </main>
-                </section>
 
-                <script>
-                  let hasSaved = false;
+                </div>
+
+
+   <script>
+
+  function active(element) {
+    // Ubah gaya tab aktif
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.classList.remove('border-primary');
+      btn.classList.add('border-black');
+    });
+
+    element.classList.remove('border-black');
+    element.classList.add('border-primary');
+
+    // Ubah konten tab
+    const isForYou = element.textContent.trim() === "For You";
+    document.getElementById("forYou").classList.toggle("hidden", !isForYou);
+    document.getElementById("following").classList.toggle("hidden", isForYou);
+  }
+
+   let hasLiked = false;
+
+  function toggleLike() {
+    const likeSpan = document.getElementById("likeCount");
+    const likeIcon = document.getElementById("likeIcon");
+    const burst = document.getElementById("burst");
+
+    let current = parseInt(likeSpan.innerText.replace(/,/g, ''));
+
+    if (!hasLiked) {
+      // LIKE
+      current += 1;
+      likeSpan.innerText = current.toLocaleString();
+      likeIcon.classList.remove("fa-regular");
+      likeIcon.classList.add("fa-solid", "text-primary");
+      hasLiked = true;
+
+      // Tampilkan efek burst
+      burst.classList.remove("opacity-0", "scale-0");
+      burst.classList.add("opacity-50", "scale-150");
+
+      // Sembunyikan kembali efek burst setelah 300ms
+      setTimeout(() => {
+        burst.classList.add("opacity-0", "scale-0");
+        burst.classList.remove("opacity-50", "scale-150");
+      }, 300);
+    } else {
+      // UNLIKE
+      current -= 1;
+      likeSpan.innerText = current.toLocaleString();
+      likeIcon.classList.remove("fa-solid", "text-primary");
+      likeIcon.classList.add("fa-regular");
+      hasLiked = false;
+    }
+  }
+
+  let hasReposted = false;
+
+  function toggleRepost() {
+    const icon = document.getElementById("repostIcon");
+
+    if (!hasReposted) {
+      // Aktifkan repost
+      icon.classList.remove("text-black");
+      icon.classList.add("text-primary");
+      hasReposted = true;
+    } else {
+      // Nonaktifkan repost
+      icon.classList.remove("text-primary");
+      icon.classList.add("text-black");
+      hasReposted = false;
+    }
+  }
+  
+  let hasSaved = false;
 
   function toggleSave() {
     const save = document.getElementById("saveIcon");
 
     if (!hasSaved) {
       // Aktifkan repost
-      save.classList.remove("fa-solid", "text-primary");
-      save.classList.add("fa-regular", "text-primary");
+      save.classList.remove("fa-regular", "text-black");
+      save.classList.add("fa-solid", "text-primary");
       hasSaved = true;
     } else {
       // Nonaktifkan repost
-      save.classList.remove("fa-regular", "text-primary");
-      save.classList.add("fa-solid","text-primary");
+      save.classList.remove("fa-solid", "text-primary");
+      save.classList.add("fa-regular","text-black");
       hasSaved = false;
     }
   }
-                </script>
+
+  let isFollowed = false;
+
+  function toggleFollow() {
+    const btn = document.getElementById("followBtn");
+
+    isFollowed = !isFollowed;
+
+    if (isFollowed) {
+      btn.textContent = "Followed";
+      btn.classList.remove("text-secondary");
+      btn.classList.add("text-primary");
+    } else {
+      btn.textContent = "Follow";
+      btn.classList.remove("text-primary");
+      btn.classList.add("text-secondary");
+    }
+  }
+
+  const toggleBtn = document.getElementById('menu-toggle');
+  const sidebar = document.getElementById('sidebar');
+
+  toggleBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('-translate-x-full');
+      if (sidebar.classList.contains('w-96')) {
+          sidebar.classList.remove('w-96');
+          sidebar.classList.add('w-0');
+      } else {
+          sidebar.classList.add('w-96');
+          sidebar.classList.remove('w-0');
+      }
+  });
+</script>
 
 </body>
 </html>
