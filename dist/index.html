@@ -55,8 +55,54 @@
             </button>
             <!-- Burger -->
 
+              <div id="modal" class="z-50 fixed backdrop-blur-md inset-0 hidden justify-center items-center">
+                    <div class="flex justify-center items-center h-full w-full">
+                        <div class="bg-white shadow-lg rounded-lg w-full px-4 md:px-0 md:w-1/2 fade-in modal-content z-50 ">
+
+                            <div class="mb-4 border-b-2 border-primary pb-5 w-full">
+
+                                <div class="flex items-center pt-4 px-10 gap-6">
+                                <button id="closeModal">
+                                    <i class="fa-solid fa-right-from-bracket cursor-pointer text-xl text-primary hover:text-secondary transition"></i>
+                                </button>
+                                    <h2 class="text-xl text-primary flex">New Post</h2>
+                                </div>
+
+                                </div>
+
+                                <div class="px-10 w-full">
+                                    <div class="flex gap-2">
+                                        <i class="fa-solid fa-circle-user text-4xl mb-4 "></i>
+                                        <h2 class="items-center flex mb-4">lorem</h2>
+                                        <h2 class="text-gray-500 items-center flex mb-4">lorem@gmail.com</h2>
+                                    </div>
+                                    
+                                       <div class="w-full">
+                                        <textarea id="text-col" class="focus:outline-none w-full max-h-10 resize-none" type="text" name="" id="" placeholder="What's Up"></textarea>
+                                       </div>
+
+                                        <div class="w-full px-2 py-2">
+                                            <label for="media"><i class="fa-solid fa-camera cursor-pointer text-primary"></i></label>
+                                            <input type="file" class="hidden" id="media">
+                                            <button onclick="hashtag()">
+                                                <i class="fa-solid ml-2 fa-hashtag cursor-pointer text-primary"></i>
+                                            </button>
+                                        </div>
+
+                                <div class="border-t-2 border-primary px-10 py-4">
+                                    <div class="justify-center items-center flex">
+                                        <button class="justify-center items-center flex border border-primary rounded-full bg-primary pt-1 h-10 w-1/2 font-bold text-black hover:bg-transparent hover:border-secondary hover:text-secondary transition">POST</button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
             <!-- Left Bar -->
-             <section id="sidebar" id="sidebar" class="fixed md:sticky w-full pb-20 md:pb-0 md:w-96 h-screen max-h-screen flex flex-col py-6 px-6 justify-items-start border-r border-primary bg-teritary space-y-6 
+             <section id="sidebar" class="fixed md:sticky w-full pb-20 md:pb-0 md:w-96 h-screen max-h-screen flex flex-col py-6 px-6 justify-items-start border-r border-primary bg-teritary space-y-6 
                 transition-all duration-300 z-40 lg:l overflow-x-hidden whitespace-nowrap overflow-y-auto">
                 <!-- Logo -->
                  <div class="flex px-4">
@@ -101,9 +147,9 @@
 
                 <!-- Post -->
                  <div class="my-5">
-                    <a class="flex text-2xl bg-primary border border-primary justify-center p-2 w-52 rounded-full hover:text-secondary hover:border-secondary transition hover:bg-transparent uppercase" href="CRUD/post.html">
+                    <button id="openModal" class="flex text-2xl bg-primary border border-primary justify-center p-2 w-52 rounded-full hover:text-secondary hover:border-secondary transition hover:bg-transparent uppercase" >
                         Post
-                    </a>
+                    </button>
                  </div>
              </section>
             <!-- Left Bar -->
