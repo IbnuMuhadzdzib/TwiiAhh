@@ -281,3 +281,6 @@ document.addEventListener("DOMContentLoaded", function () {
           
           textarea.value += " #";
         }
+
+        document.documentElement.classList.remove('dark');
+    localStorage.setItem('theme', 'light');
